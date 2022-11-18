@@ -1,0 +1,17 @@
+name: python app test
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: setup
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.8
+    - name: install
+      run: make install
+    - name: lint
+      run: make lint
+    - name: test
+      run: make test
